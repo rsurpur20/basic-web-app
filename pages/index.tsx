@@ -15,6 +15,7 @@ export default function Home() {
           setQuery(e.target.value)
         }
       />
+      <p>{query}</p>
       <div>
         {QueryProcessor(query) == "" ? "No Matches" : QueryProcessor(query)}
       </div>
