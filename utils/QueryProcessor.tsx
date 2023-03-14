@@ -8,8 +8,20 @@ export default function QueryProcessor(query: string): string {
   }
   if (query.toLowerCase().includes("name")) {
     return (
-      "Your name" 
+      "mitun and roshni" 
     );
+  }
+  if (query.toLowerCase().includes("numbers is the largest")) {
+    // const numbers = query.match("/\d+/g");
+    // const largest = Math.max(...numbers.map(Number));
+    let queryArray = query.toLowerCase().split(":");
+    let nums = queryArray[1]
+    let queryArraynums = nums.toLowerCase().split(",");
+    let first = parseInt(queryArraynums[0]);
+    let second = parseInt(queryArraynums[1]);
+    let third = parseInt(queryArraynums[2]);
+    return Math.max(first, second, third).toString();
+    
   }
 
   return "";
