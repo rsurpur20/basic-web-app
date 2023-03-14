@@ -12,6 +12,6 @@ export default function handler(
   
   const query = req.query.q as string;
   const response = QueryProcessor(query);
-
+  console.log(query);
   res.status(200).send(response);
 }
