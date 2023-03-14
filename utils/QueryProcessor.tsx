@@ -34,6 +34,24 @@ export default function QueryProcessor(query: string): string {
     return (first+second).toString();
     
   }
+  if (query.toLowerCase().includes("square and a cube")) {
+    let queryArray = query.toLowerCase().split(":");
+    let nums = queryArray[1] 
+    let queryArraynums = nums.toLowerCase().split(",");
+    
+    let result = [];
+    for (let i = 0; i > queryArraynums.length; i++) {
+      const num = queryArraynums[i]
+      if (Number.isInteger(Math.sqrt(parseInt(num)))) {
+        if (Number.isInteger(Math.cbrt(parseInt(num)))) {
+          result.push(num)
+        }
+       }
+    } 
+      
+    return result.toString();
+    
+  }
 
   return "";
 }
