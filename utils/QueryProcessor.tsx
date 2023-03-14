@@ -35,15 +35,23 @@ export default function QueryProcessor(query: string): string {
     
   }
   if (query.toLowerCase().includes("square and a cube")) {
+    // #Which of the following numbers is both a square and a cube: 6, 3025, 2993, 1728, 4589, 64, 1970?
     let queryArray = query.toLowerCase().split(":");
-    let nums = queryArray[1] 
+    //[ Which of the following numbers is both a square and a cube,  6, 3025, 2993, 1728, 4589, 64, 1970?]
+    let nums = queryArray[1] ;
+    // " 6, 3025, 2993, 1728, 4589, 64, 1970?""
     let queryArraynums = nums.toLowerCase().split(",");
     
+     // [ "6", "3025", "2993", "1728", "4589", "64", "1970"]
+     const numberArray: number[] = queryArraynums.map((str: string) => Number(str));
+
     let result = [];
-    for (let i = 0; i > queryArraynums.length; i++) {
-      const num = queryArraynums[i]
-      if (Number.isInteger(Math.sqrt(parseInt(num)))) {
-        if (Number.isInteger(Math.cbrt(parseInt(num)))) {
+    console.log("(queryArraynums)" + numberArray)
+    for (let i = 0; i > numberArray.length; i++) {
+      const num = numberArray[i]
+      console.log("num" +num)
+      if (Number.isInteger(Math.sqrt((num)))) {
+        if (Number.isInteger(Math.cbrt((num)))) {
           result.push(num)
         }
        }
