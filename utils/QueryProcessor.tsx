@@ -52,6 +52,28 @@ export default function QueryProcessor(query: string): string {
     return result.toString();
     
   }
+  if (query.toLowerCase().includes("minus")) {
+    // const numbers = query.match("/\d+/g");
+    // const largest = Math.max(...numbers.map(Number));
+    let queryArray = query.toLowerCase().split(" ");
+    // let nums = queryArray[1]
+    // let queryArraynums = nums.toLowerCase().split(",");
+    let first = parseInt(queryArray[2]);
+    let second = parseInt(queryArray[4]);
+    return (first-second).toString();
+    
+  }
+  if (query.toLowerCase().includes("multiply")) {
+    // const numbers = query.match("/\d+/g");
+    // const largest = Math.max(...numbers.map(Number));
+    let queryArray = query.toLowerCase().split(" ");
+    // let nums = queryArray[1]
+    // let queryArraynums = nums.toLowerCase().split(",");
+    let first = parseInt(queryArray[2]);
+    let second = parseInt(queryArray[4]);
+    return (first*second).toString();
+    
+  }
 
   return "";
 }
